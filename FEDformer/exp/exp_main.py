@@ -248,11 +248,11 @@ class Exp_Main(Exp_Basic):
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
 
-        mae, mse, rme, rmse, mape, mspe = metric(preds, trues)
-        print('mse:{}, mae:{}, rme:{}, rmse:{}'.format(mse, mae, rme, rmse))
-        f = open("result.txt", 'a')
+        mae, mse, rse, rmse, mape, mspe = metric(preds, trues)
+        print('{} {} {} {} {} {}'.format(mae, mse, rse, rmse, mape, mspe))
+        f = open("result.csv", 'a')
         f.write(setting + "  \n")
-        f.write('mse:{}, mae:{}, rme:{}, rmse:{}'.format(mse, mae, rme, rmse))
+        f.write('{},{},{},{},{},{}'.format(mae, mse, rse, rmse, mape, mspe))
         f.write('\n')
         f.write('\n')
         f.close()
